@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Petite URL</h1>
+        <form action="/shortUrl" method="POST" class="my-4 form-inline">
+            <!-- <label for="originalUrl">URL</label> -->
+            <input required placeholder="URL" type="url" name="originalUrl" id="originalUrl" class="form-control col mr-2"/>
+            <button class="btn btn-success" type="submit">Generate</button>
+        </form>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Original URL</th>
+                    <th>Short Url</th>
+                    <th>Clicks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% listUrls.forEach( shortUrl => { %>
+                    <tr>
+                        <td><a href="<%= shortUrl.originalUrl %>"><%= shortUrl.originalUrl %></a></td>
+                        <td><a href="<%= shortUrl.shortUrl %>"><%= shortUrl.shortUrl %></a></td>
+                        <td><%= shortUrl.clicks %></td>
+                    </tr>
+
+               <% }) %>
+                
+                
+            </tbody>
+            
+        </table>
+    </div>    
+</body>
+</html>
